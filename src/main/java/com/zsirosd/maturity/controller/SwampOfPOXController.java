@@ -24,7 +24,8 @@ public class SwampOfPOXController {
         String action = String.valueOf(body.get("action"));
         if (null != action) {
             switch (action) {
-                case "getAllMovies": return movieRepository.findAll();
+                case "getAllMovies":
+                    return movieRepository.findAll();
                 case "createMovie": {
                     String title = String.valueOf(body.get("title"));
                     Integer rating = (Integer) body.get("rating");
@@ -35,7 +36,8 @@ public class SwampOfPOXController {
 
                     return movieRepository.save(movie);
                 }
-                case "getAllActors": return actorRepository.findAll();
+                case "getAllActors":
+                    return actorRepository.findAll();
             }
         }
         return body;

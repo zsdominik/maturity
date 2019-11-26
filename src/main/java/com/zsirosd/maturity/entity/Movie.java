@@ -10,18 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="movies")
+@Table(name = "movies")
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="seq")
-    @GenericGenerator(name = "seq", strategy="increment")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
     @Column(nullable = false)
     private Long movieId;
     private String title;
     private Integer rating;
 
-    public Movie() { }
+    public Movie() {
+    }
 
     public Long getMovieId() {
         return movieId;

@@ -14,13 +14,14 @@ import javax.persistence.Table;
 public class Actor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="seq")
-    @GenericGenerator(name = "seq", strategy="increment")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
     @Column(nullable = false)
     private Long actorId;
     private String actorName;
 
-    public Actor() { }
+    public Actor() {
+    }
 
     public Long getActorId() {
         return actorId;

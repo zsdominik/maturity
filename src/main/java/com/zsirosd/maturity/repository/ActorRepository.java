@@ -1,9 +1,9 @@
 package com.zsirosd.maturity.repository;
 
-import com.zsirosd.maturity.entity.Movie;
+import com.zsirosd.maturity.entity.Actor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, Long> {
+public interface ActorRepository extends JpaRepository<Actor, Long> {
 }

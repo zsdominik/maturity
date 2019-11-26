@@ -1,8 +1,11 @@
 package com.zsirosd.maturity.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +14,8 @@ import javax.persistence.Table;
 public class Movie {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="seq")
+    @GenericGenerator(name = "seq", strategy="increment")
     @Column(nullable = false)
     private Long movieId;
     private String title;

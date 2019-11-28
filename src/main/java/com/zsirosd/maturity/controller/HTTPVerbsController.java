@@ -43,7 +43,7 @@ public class HTTPVerbsController {
     }
 
     @PostMapping("/movies/{id}/book")
-    public ResponseEntity<Booking> bookAMovieDummy(@PathVariable Long movieId, @RequestBody Booking bookingDetails) throws URISyntaxException {
+    public ResponseEntity<Booking> bookAMovieDummy(@PathVariable("id") Long movieId, @RequestBody Booking bookingDetails) throws URISyntaxException {
         bookingDetails.setMovieId(movieId);
         Booking storedBooking = bookingRepository.save(bookingDetails);
         return ResponseEntity.created(new URI("/bookings/" + storedBooking.getBookingId())).body(storedBooking);

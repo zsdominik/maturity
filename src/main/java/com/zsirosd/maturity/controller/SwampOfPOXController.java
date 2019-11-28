@@ -3,6 +3,7 @@ package com.zsirosd.maturity.controller;
 import com.zsirosd.maturity.entity.Movie;
 import com.zsirosd.maturity.repository.ActorRepository;
 import com.zsirosd.maturity.repository.MovieRepository;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ public class SwampOfPOXController {
     private ActorRepository actorRepository;
 
     @PostMapping("/movieService")
+    @ApiOperation(value = "getAllMovies, createMovie(title, rating), getAllActors")
     public Object movieService(@RequestBody LinkedHashMap body) {
         String action = String.valueOf(body.get("action"));
         if (null != action) {

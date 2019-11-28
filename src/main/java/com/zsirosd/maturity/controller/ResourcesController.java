@@ -37,13 +37,13 @@ public class ResourcesController {
     }
 
     @PostMapping("/movies/{id}/bookOne")
-    public Booking bookAMovieDummy(@PathVariable Long movieId, @RequestBody Booking bookingDetails) {
+    public Booking bookAMovieDummy(@PathVariable("id") Long movieId, @RequestBody Booking bookingDetails) {
         bookingDetails.setMovieId(movieId);
         return bookingRepository.save(bookingDetails);
     }
 
     @PostMapping("/movies/{id}/update")
-    public Movie updateMovie(@PathVariable(value = "id") Long movieId, @RequestBody Movie movieDetails) {
+    public Movie updateMovie(@PathVariable("id") Long movieId, @RequestBody Movie movieDetails) {
         Movie movie = movieRepository.getOne(movieId);
         movie.setTitle(movieDetails.getTitle());
         movie.setRating(movieDetails.getRating());

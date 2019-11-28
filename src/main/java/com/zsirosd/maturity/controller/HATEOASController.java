@@ -71,14 +71,14 @@ public class HATEOASController {
     }
 
     @PostMapping("hateoas/movies/{id}/book")
-    public ResponseEntity<Booking> bookAMovieDummy(@PathVariable Long movieId, @RequestBody Booking bookingDetails) throws URISyntaxException {
+    public ResponseEntity<Booking> bookAMovieDummy(@PathVariable("id") Long movieId, @RequestBody Booking bookingDetails) throws URISyntaxException {
         bookingDetails.setMovieId(movieId);
         Booking storedBooking = bookingRepository.save(bookingDetails);
         return ResponseEntity.created(new URI("/bookings/" + storedBooking.getBookingId())).body(storedBooking);
     }
 
     @PutMapping("hateoas/movies/{id}")
-    public Movie updateMovie(@PathVariable(value = "id") Long movieId, @RequestBody Movie movieDetails) {
+    public Movie updateMovie(@PathVariable("id") Long movieId, @RequestBody Movie movieDetails) {
         Movie movie = movieRepository.getOne(movieId);
         movie.setTitle(movieDetails.getTitle());
         movie.setRating(movieDetails.getRating());
